@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: springcloud-consumer
+#mybatis配置
+mybatis:
+  config-locations: classpath:mybatis-config.xml
+  mapper-locations: classpath:com/talelife/myproject/mapper/*.xml
+  type-aliases-package: com.talelife.myproject.model
+  configuration:
+    cache-enabled: true
+#pagehelper分页插件配置
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params-count: countSql
+#日志配置
+logging:
+  file: springboot-consumer.log
+  level.org.springframework.web: debug
+  level.org.springframework.transaction: debug
+  level.org.mybatis: debug
+  level.com.talelife.myproject: debug
+  debug: false
+#redis session
+redis:
+  #hostName: 120.25.208.44
+  host: 172.31.118.23
+  password: 123456
+  port: 6379
+  timeout: 10000
