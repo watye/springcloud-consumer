@@ -1,13 +1,10 @@
-spring:
-  application:
-    name: springcloud-consumer
 #mybatis配置
 mybatis:
   config-locations: classpath:mybatis-config.xml
   mapper-locations: classpath:com/talelife/myproject/mapper/*.xml
   type-aliases-package: com.talelife.myproject.model
   configuration:
-    cache-enabled: true
+    cache-enabled: false
 #pagehelper分页插件配置
 pagehelper:
   helperDialect: mysql
@@ -16,7 +13,7 @@ pagehelper:
   params-count: countSql
 #日志配置
 logging:
-  file: springboot-consumer.log
+  file: springboot-provider.log
   level.org.springframework.web: debug
   level.org.springframework.transaction: debug
   level.org.mybatis: debug
@@ -29,3 +26,17 @@ redis:
   password: 123456
   port: 6379
   timeout: 10000
+
+spring:
+  #spring数据源配置
+  datasource:
+    url: jdbc:mysql://172.31.118.23:3306/myproject?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    #指定数据连接沲
+    type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    host: 172.31.118.23
+    password: 123456
+    port: 6379
